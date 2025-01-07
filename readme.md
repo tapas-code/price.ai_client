@@ -90,6 +90,12 @@ Price.ai supports the following models:
 
 Access the live demo at [price.ai-demo.com](#) (update this with your deployed link [Coming Soon] ).
 
+### Predicted Price Listing
+![Page 1](src/images/page1.png)
+### Back-Testing & Visualization 
+![Page 2](src/images/page2.png)
+![Page 3](src/images/page3.png)
+
 ## 📚 Documentation
 
 Detailed documentation is available in the `docs/` directory, including:
