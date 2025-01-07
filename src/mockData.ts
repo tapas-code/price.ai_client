@@ -46,7 +46,7 @@ export const cryptocurrencies: CryptoCurrency[] = [
     symbol: 'BTCUSDT',
     currentPrice: 65432.10,
     prediction: {
-      price: 67890.25,
+      price: 100958.46,
       confidence: 0.82,
       direction: 'up',
       probability: 0.85

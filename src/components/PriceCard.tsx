@@ -46,7 +46,7 @@ export function PriceCard({ crypto }: PriceCardProps) {
       
       <div className="mb-4">
         <div className="text-2xl font-bold text-white">
-          ${data?.predicted_closing_price.toLocaleString()}
+          ${data?.last_closing_price.toLocaleString()}
         </div>
         <div className={`flex items-center mt-1 ${
           crypto.change24h >= 0 ? 'text-[#00FFB2]' : 'text-[#FF3366]'
@@ -61,7 +61,7 @@ export function PriceCard({ crypto }: PriceCardProps) {
         <div className="flex justify-between items-center">
           <div>
             <div className="text-lg font-semibold text-white">
-              ${crypto.prediction.price.toLocaleString()}
+              ${data?.predicted_closing_price.toLocaleString()}
             </div>
             <div className={`text-sm ${isPositive ? 'text-[#00FFB2]' : 'text-[#FF3366]'}`}>
               {isPositive ? '▲' : '▼'} {(crypto.prediction.probability * 100).toFixed(1)}%
