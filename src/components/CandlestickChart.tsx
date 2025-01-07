@@ -44,6 +44,7 @@ export function CandlestickChart({ data, symbol, interval }: CandlestickChartPro
         wickDownColor: '#FF3366',
       });
 
+
       const formattedData = data.map(candle => ({
         time: new Date(candle.open_time).getTime() / 1000,
         open: candle.open,

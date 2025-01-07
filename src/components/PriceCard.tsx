@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { TrendingUp, TrendingDown } from 'lucide-react';
 import { CryptoCurrency } from '../types';
+import axios from 'axios';
 
 interface PriceCardProps {
   crypto: CryptoCurrency;
@@ -8,6 +9,33 @@ interface PriceCardProps {
 
 export function PriceCard({ crypto }: PriceCardProps) {
   const isPositive = crypto.prediction.direction === 'up';
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const symbol = crypto.symbol;
+  const interval = '1d';
+  const limit = 100;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.post(
+          `http://127.0.0.1:8000/predict-price/${symbol}?interval=${interval}&limit=${limit}`
+        );
+        setData(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [symbol, interval, limit]);
+
+  if (loading) {
+    return <div className="text-white">Loading...</div>;
+  }
 
   return (
     <div className="bg-[#2A2A2A] rounded-lg p-6 shadow-lg">
@@ -18,7 +46,7 @@ export function PriceCard({ crypto }: PriceCardProps) {
       
       <div className="mb-4">
         <div className="text-2xl font-bold text-white">
-          ${crypto.currentPrice.toLocaleString()}
+          ${data?.predicted_closing_price.toLocaleString()}
         </div>
         <div className={`flex items-center mt-1 ${
           crypto.change24h >= 0 ? 'text-[#00FFB2]' : 'text-[#FF3366]'

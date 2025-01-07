@@ -7,6 +7,7 @@ import { PredictionSection } from './components/PredictionSection';
 import { BacktestingSection } from './components/BacktestingSection';
 import { CandlestickChart } from './components/CandlestickChart';
 import { cryptocurrencies, metrics, bitcoinPriceData, candlestickData } from './mockData';
+import ChartPage from './components/ChartPage';
 
 export default function App() {
   return (
@@ -29,11 +30,12 @@ export default function App() {
           <PredictionSection />
           <BacktestingSection />
           <PriceChart data={bitcoinPriceData} timeframe="24H" />
-          <CandlestickChart 
+          {/* <CandlestickChart 
             data={candlestickData} 
             symbol="BTC/USDT" 
             interval="1H" 
-          />
+          /> */}
+          <ChartPage/>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

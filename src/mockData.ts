@@ -43,7 +43,7 @@ export const cryptocurrencies: CryptoCurrency[] = [
   {
     id: 'bitcoin',
     name: 'Bitcoin',
-    symbol: 'BTC',
+    symbol: 'BTCUSDT',
     currentPrice: 65432.10,
     prediction: {
       price: 67890.25,
@@ -56,7 +56,7 @@ export const cryptocurrencies: CryptoCurrency[] = [
   {
     id: 'ethereum',
     name: 'Ethereum',
-    symbol: 'ETH',
+    symbol: 'ETHUSDT',
     currentPrice: 3456.78,
     prediction: {
       price: 3589.12,
